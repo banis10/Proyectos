@@ -1,0 +1,45 @@
+archivo = "tabla.csv"
+csv = open(archivo,"w")
+csv.write("Operacion,Resultado\n") 
+
+while True:
+    print("""
+        
+        0) Sumar 
+        1) Restar
+        2) Multiplicar
+        3) Dividir
+        """)
+    try:
+        opcion = int(input("Seleccione una operacion a realizar:") ) 
+        if opcion <= 3: 
+            print("La operacion seleccionada es",opcion) 
+            try:
+                n1 = float(input("Ingrese un número: ") )
+                n2 = float(input("Ingrese otro número: ") )   
+                if opcion == 0:
+                    print("El resultado de la suma es = ",n1+n1)
+                    csv.write("suma"+","+str(n1+n2)+"\n")
+                elif opcion == 1:
+                    print("El resultado de la resta es =",n1-n2)
+                    csv.write("resta"+","+str(n1-n2)+"\n")
+                elif opcion == 2:
+                    print("El resultado de la multiplicacion es = ",n1*n2)
+                    csv.write("multiplicacion"+","+str(n1*n2)+"\n")
+                elif opcion == 3:
+                    print("El resuldato de la division es = ",n1/n2)
+                    csv.write("division"+","+str(n1/n2)+"\n")
+
+            except ValueError:
+                print("No se ha ingresado un numero, intentelo de nuevo")    
+        else:
+            print("No se ha seleccionado una opcion valida")
+
+    except ValueError :
+           print("No se ha seleccionado una opcion valida, intentelo de nuevo")
+    except ZeroDivisionError:
+            print("La division entre cero no esta definida")
+
+    print("Operacion completada")
+
+
